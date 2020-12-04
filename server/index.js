@@ -33,7 +33,11 @@ app.use(require('./routes'));
 const port = process.env.PORT || 8080;
 const address = process.env.SERVER_ADDRESS || 'localhost';
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname + '../client/build/index.html'));
+});
 
 const server = app.listen(port, () => console.log(`Server running on http://${address}:${port}`));
 
