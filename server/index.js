@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const dotenv = require('dotenv');
+const path = require('path');
 
 const expressStatusMonitor = require('express-status-monitor');
 const connectDB = require('./config/db');
